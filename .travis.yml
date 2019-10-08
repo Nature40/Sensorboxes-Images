@@ -2,18 +2,27 @@ language: generic
 services: docker
 dist: bionic
 
-if: tag IS present
+addons:
+  apt:
+    packages:
+    - kpartx 
+    - qemu
+    - qemu-user-static
+    - binfmt-support
+    - parted
+    
+# if: tag IS present
 
 before_install:
   - wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-07-12/2019-07-10-raspbian-buster-lite.zip
   - unzip 2019-07-10-raspbian-buster-lite.zip
 
 script:
-  - docker-compose run pimod pimod.sh Base.Pifile
-  - docker-compose run pimod pimod.sh Mesh.Pifile
-  - docker-compose run pimod pimod.sh Sensorbox.Pifile
-  - docker-compose run pimod pimod.sh Connector.Pifile
-  - docker-compose run pimod pimod.sh Lora.Pifile
+  - pimod pimod.sh Base.Pifile
+  - pimod pimod.sh Mesh.Pifile
+  - pimod pimod.sh Sensorbox.Pifile
+  - pimod pimod.sh Connector.Pifile
+  - pimod pimod.sh Lora.Pifile
   - zip Sensorbox.zip Sensorbox.img
   - zip Connector.zip Connector.img
   - zip Lora.zip Lora.img
