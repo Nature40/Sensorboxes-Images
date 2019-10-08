@@ -15,7 +15,8 @@ addons:
 before_install:
   - wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-07-12/2019-07-10-raspbian-buster-lite.zip
   - unzip 2019-07-10-raspbian-buster-lite.zip
-  - sudo export PATH="${TRAVIS_BUILD_DIR}/pimod:${PATH}"
+  - export PATH="${TRAVIS_BUILD_DIR}/pimod:${PATH}"
+  - sudo sed -i '/^Defaults\tsecure_path.*$/ d' /etc/sudoers
 
 script:
   - sudo pimod.sh Base.Pifile
