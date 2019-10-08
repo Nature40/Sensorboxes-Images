@@ -17,11 +17,11 @@ before_install:
   - unzip 2019-07-10-raspbian-buster-lite.zip
 
 script:
-  - pimod/pimod.sh Base.Pifile
-  - pimod/pimod.sh Mesh.Pifile
-  - pimod/pimod.sh Sensorbox.Pifile
-  - pimod/pimod.sh Connector.Pifile
-  - pimod/pimod.sh Lora.Pifile
+  - cd pimod && pimod.sh Base.Pifile
+  - cd pimod && pimod.sh Mesh.Pifile
+  - cd pimod && pimod.sh Sensorbox.Pifile
+  - cd pimod && pimod.sh Connector.Pifile
+  - cd pimod && pimod.sh Lora.Pifile
   - zip Sensorbox.zip Sensorbox.img
   - zip Connector.zip Connector.img
   - zip Lora.zip Lora.img
