@@ -1,5 +1,4 @@
 language: generic
-services: docker
 dist: bionic
 
 addons:
@@ -18,11 +17,11 @@ before_install:
   - unzip 2019-07-10-raspbian-buster-lite.zip
 
 script:
-  - pimod pimod.sh Base.Pifile
-  - pimod pimod.sh Mesh.Pifile
-  - pimod pimod.sh Sensorbox.Pifile
-  - pimod pimod.sh Connector.Pifile
-  - pimod pimod.sh Lora.Pifile
+  - pimod/pimod.sh Base.Pifile
+  - pimod/pimod.sh Mesh.Pifile
+  - pimod/pimod.sh Sensorbox.Pifile
+  - pimod/pimod.sh Connector.Pifile
+  - pimod/pimod.sh Lora.Pifile
   - zip Sensorbox.zip Sensorbox.img
   - zip Connector.zip Connector.img
   - zip Lora.zip Lora.img
