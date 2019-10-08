@@ -13,16 +13,16 @@ addons:
 # if: tag IS present
 
 before_install:
-  - git submodule update --init
   - wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-07-12/2019-07-10-raspbian-buster-lite.zip
   - unzip 2019-07-10-raspbian-buster-lite.zip
+  - export PATH="${TRAVIS_BUILD_DIR}/pimod:${PATH}"
 
 script:
-  - cd pimod && pimod.sh Base.Pifile
-  - cd pimod && pimod.sh Mesh.Pifile
-  - cd pimod && pimod.sh Sensorbox.Pifile
-  - cd pimod && pimod.sh Connector.Pifile
-  - cd pimod && pimod.sh Lora.Pifile
+  - pimod.sh Base.Pifile
+  - pimod.sh Mesh.Pifile
+  - pimod.sh Sensorbox.Pifile
+  - pimod.sh Connector.Pifile
+  - pimod.sh Lora.Pifile
   - zip Sensorbox.zip Sensorbox.img
   - zip Connector.zip Connector.img
   - zip Lora.zip Lora.img
