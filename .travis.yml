@@ -18,11 +18,11 @@ before_install:
   - export PATH="${TRAVIS_BUILD_DIR}/pimod:${PATH}"
 
 script:
-  - pimod.sh Base.Pifile
-  - pimod.sh Mesh.Pifile
-  - pimod.sh Sensorbox.Pifile
-  - pimod.sh Connector.Pifile
-  - pimod.sh Lora.Pifile
+  - sudo pimod.sh Base.Pifile
+  - sudo pimod.sh Mesh.Pifile
+  - sudo pimod.sh Sensorbox.Pifile
+  - sudo pimod.sh Connector.Pifile
+  - sudo pimod.sh Lora.Pifile
   - zip Sensorbox.zip Sensorbox.img
   - zip Connector.zip Connector.img
   - zip Lora.zip Lora.img
